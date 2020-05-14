@@ -1,14 +1,20 @@
 import sys
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QWidget, QVBoxLayout, QTabWidget, QPushButton
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QWidget, QVBoxLayout, QTabWidget, QPushButton, QLineEdit
+
+
+class QInputDIalogue(object):
+    pass
 
 
 class Gui(QMainWindow):
 
-    def __init__(self):
+    def __init__(self, parent = None):
         super().__init__()
         self.initUI()
+        super(QWidget, self).__init__(parent)
+        self.layout = QVBoxLayout(self)
 
     def initUI(self):
         self.statusBar().showMessage('Ready')
@@ -70,10 +76,6 @@ class Gui(QMainWindow):
         print("Exit menu item clicked")
 
 
-    def __init__(self, parent):
-        super(QWidget, self).__init__(parent)
-        self.layout = QVBoxLayout(self)
-
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.tab1 = QWidget()
@@ -103,3 +105,5 @@ class Gui(QMainWindow):
 
     def openClick(self):
         print("click")
+        nom,type = QInputDIalogue.getText(self,"input dialogue", "Votre nom ?",QLineEdit.Normale,"")
+        print(nom)
