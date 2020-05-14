@@ -10,11 +10,9 @@ class QInputDIalogue(object):
 
 class Gui(QMainWindow):
 
-    def __init__(self, parent = None):
+    def __init__(self):
         super().__init__()
         self.initUI()
-        super(QWidget, self).__init__(parent)
-        self.layout = QVBoxLayout(self)
 
     def initUI(self):
         self.statusBar().showMessage('Ready')
@@ -75,12 +73,16 @@ class Gui(QMainWindow):
     def close(self):
         print("Exit menu item clicked")
 
+        class MyTableWidget(QWidget):
+
+            def __init__(self, parent):
+                super(QWidget, self).__init__(parent)
+                self.layout = QVBoxLayout(self)
 
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.tab1 = QWidget()
         self.tab2 = QWidget()
-        self.tabs.resize(300, 200)
 
         # Add tabs
         self.tabs.addTab(self.tab1, "Onglet 1")
