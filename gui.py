@@ -15,5 +15,5 @@ class Gui(QMainWindow):
         self.setGeometry(300, 300, 250, 150)
         self.setWindowTitle('Test ravi')
         self.show()
-        self.devicePixelRatio(1280*720)
+        self.setMinimumSize(1280, 720)
 
