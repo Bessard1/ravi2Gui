@@ -26,4 +26,4 @@ if __name__ == '__main__':
     ex = Gui()
     sys.exit(app.exec_())
 
-    "commite directorie pour envoyer et push pour lenvoyer"
+    "voir video pour envoyer sur git"
