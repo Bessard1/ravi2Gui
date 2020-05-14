@@ -1,14 +1,13 @@
 import sys
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QWidget, QVBoxLayout, QTabWidget, QPushButton
 
 
 class Gui(QMainWindow):
 
     def __init__(self):
         super().__init__()
-
         self.initUI()
 
     def initUI(self):
@@ -22,11 +21,13 @@ class Gui(QMainWindow):
         self.__createHelpMenu()
 
     def __createFileMenu(self):
-        actOpen = QAction(QIcon("icons/ovrir.png"), "&Ovrir", self)
+        actOpen = QAction(QIcon("icons/ouvrir.png"), "&Ouvrir", self)
+        actOpen.setShortcut("Ctrl+O")
         actOpen.setStatusTip("Ouvrir fichier")
 
         actSave = QAction(QIcon("icons/sauvegarder.png"), "&Sauvegarder", self)
-        actSave.setStatusTip("Save Fichier")
+        actSave.setShortcut("Ctrl+S")
+        actSave.setStatusTip("Sauvegarder Fichier")
 
         actExit = QAction(QIcon("icons/sortir.png"), "&Sortir", self)
         actExit.setShortcut("Ctrl+Q")
@@ -69,10 +70,36 @@ class Gui(QMainWindow):
         print("Exit menu item clicked")
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
+    def __init__(self, parent):
+        super(QWidget, self).__init__(parent)
+        self.layout = QVBoxLayout(self)
 
-    myWindow = MyWindow()
-    myWindow.show()
+        # Initialize tab screen
+        self.tabs = QTabWidget()
+        self.tab1 = QWidget()
+        self.tab2 = QWidget()
+        self.tabs.resize(300, 200)
 
-    sys.exit(app.exec_())
+        # Add tabs
+        self.tabs.addTab(self.tab1, "Onglet 1")
+        self.tabs.addTab(self.tab2, "Onglet 2")
+
+        self.tab1.layout = QVBoxLayout(self)
+        openButton = QPushButton("nom")
+
+        self.tab1.layout.addtraigger(openButton)
+        self.tab1.setLayout(self.tab1)
+        openButton.clicked.connect(self.tab1.layout)
+
+        # Create first tab
+        self.tab1.layout = QVBoxLayout(self)
+        self.pushButton1 = QPushButton("PyQt5 button")
+        self.tab1.layout.addWidget(self.pushButton1)
+        self.tab1.setLayout(self.tab1.layout)
+
+        # Add tabs to widget
+        self.layout.addWidget(self.tabs)
+        self.setLayout(self.layout)
+
+    def openClick(self):
+        print("click")

@@ -12,7 +12,7 @@ Question 3: ajouter un menu "fichier" avec 3 actions possible (ouvrir / enregist
 Question 4: Ajouter la description des action dans la "statue bar"
 
 Question 5: ajouter un systeme d'onglet
-Question 6: dans l'onglet 1, ajouter un bouton qui ouvre un "input file" pour demander le nom de l'utilisateur
+Question 6: dans l'onglet 1, ajouter un bouton qui ouvre un "texte input dialoque" pour demander le nom de l'utilisateur
 Question 7: dans l'onglet 1, ajouter un label pour afficher le nom de l'utilisateur
 Question 8: Changer l'arriere plan de l'onglet 1 avec une image de votre choix
 
@@ -26,4 +26,3 @@ if __name__ == '__main__':
     ex = Gui()
     sys.exit(app.exec_())
 
-    "voir video pour envoyer sur git"
