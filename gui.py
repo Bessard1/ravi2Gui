@@ -79,6 +79,8 @@ class Gui(QMainWindow):
                 super(QWidget, self).__init__(parent)
                 self.layout = QVBoxLayout(self)
 
+        self.myWidget = MyTableWidget(self)
+
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.tab1 = QWidget()
@@ -89,11 +91,11 @@ class Gui(QMainWindow):
         self.tabs.addTab(self.tab2, "Onglet 2")
 
         self.tab1.layout = QVBoxLayout(self)
-        openButton = QPushButton("nom")
+        openButton = QPushButton("Nom ?")
+        openButton.clicked.connect(self.openClick)
 
-        self.tab1.layout.addtraigger(openButton)
-        self.tab1.setLayout(self.tab1)
-        openButton.clicked.connect(self.tab1.layout)
+        self.tab1.layout.addWidget(openButton)
+        self.tab1.setLayout(self.tab1.layout)
 
         # Create first tab
         self.tab1.layout = QVBoxLayout(self)
