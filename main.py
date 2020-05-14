@@ -25,3 +25,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Gui()
     sys.exit(app.exec_())
+
+    "commite directorie pour envoyer et push pour lenvoyer"
