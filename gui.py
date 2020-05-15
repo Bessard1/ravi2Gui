@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
-    QInputDialog, QLineEdit
+    QInputDialog, QLineEdit, QTableWidget, QTableWidgetItem
+
 
 class Gui(QMainWindow):
 
@@ -82,6 +83,21 @@ class MyTableWidget(QWidget):
         self.tab1.setLayout(self.tab1.layout)
         self.tab1.setStyleSheet("background-image: url(./img.jpg); background-attachment: fixed;")
 
+        # Tab 2:
+        self.tableWidget = QTableWidget()
+        self.tableWidget.setRowCount(6)
+        self.tableWidget.setColumnCount(2)
+
+        self.tab2.layout = QVBoxLayout(self)
+        self.tab2.layout.addWidget(self.tableWidget)
+        self.tab2.setLayout(self.tab2.layout)
+
+        self.tableWidget.setItem(0, 0, QTableWidgetItem("Nom ?"))
+        self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
+        self.tableWidget.setItem(2, 0, QTableWidgetItem("Date de naissance ?"))
+        self.tableWidget.setItem(0, 1, QTableWidgetItem("Sexe ?"))
+        self.tableWidget.setItem(1, 1, QTableWidgetItem("Taille ?"))
+        self.tableWidget.setItem(2, 1, QTableWidgetItem("Poid ?"))
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
