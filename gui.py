@@ -70,7 +70,6 @@ class MyTableWidget(QWidget):
         self.tab1 = QWidget()
         self.tab2 = QWidget()
 
-
         # Add tabs
         self.tabs.addTab(self.tab1, "Onglet 1")
         self.tabs.addTab(self.tab2, "Onglet 2")
