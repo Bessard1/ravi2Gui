@@ -1,7 +1,9 @@
 import sys
 
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QWidget, QVBoxLayout, QTabWidget, QPushButton, QLineEdit
+from PyQt5.QtCore import QSize
+from PyQt5.QtGui import QIcon, QImage, QPalette, QBrush
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
+    QLineEdit, QLabel
 
 
 class QInputDIalogue(object):
@@ -111,3 +113,69 @@ class Gui(QMainWindow):
         print("click")
         nom,type = QInputDIalogue.getText(self,"input dialogue", "Votre nom ?",QLineEdit.Normale,"")
         print(nom)
+
+"nom etiquette"
+class Fenetre(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+
+        # création du champ de texte
+        self.champ = QLineEdit()
+
+        # création du bouton
+        self.bouton = QPushButton("COPIE")
+        # on connecte le signal "clicked" à la méthode "appui_bouton_copie"
+        self.bouton.clicked.connect(self.appui_bouton_copie)
+
+        # création de l'étiquette
+        self.label = QLabel()
+
+        # mise en place du gestionnaire de mise en forme
+        layout = QVBoxLayout()
+        layout.addWidget(self.champ)
+        layout.addWidget(self.bouton)
+        layout.addWidget(self.label)
+        self.setLayout(layout)
+
+        self.setWindowTitle("Ma fenetre")
+
+    # on définit une méthode à connecter au signal envoyé
+    def appui_bouton_copie(self):
+        # la méthode "text" de QLineEdit permet d'obtenir le texte à copier
+        texte_a_copier = self.champ.text()
+        # la méthode "setText" de QLabel permet de changer
+        # le texte de l'étiquette
+        self.label.setText(texte_a_copier)
+
+
+app = QApplication.instance()
+if not app:
+    app = QApplication(sys.argv)
+
+fen = Fenetre()
+fen.show()
+
+app.exec_()
+
+"Couleur"
+class MainWindow(QWidget):
+    def __init__(self):
+       QWidget.__init__(self)
+       self.setGeometry(100,100,300,200)
+
+       oImage = QImage("test.png")
+       sImage = oImage.scaled(QSize(300,200))                   # resize Image to widgets size
+       palette = QPalette()
+       palette.setBrush(QPalette.Window, QBrush(sImage))
+       self.setPalette(palette)
+
+       self.label = QLabel('Test', self)                        # test, if it's really backgroundimage
+       self.label.setGeometry(50,50,200,50)
+
+       self.show()
+
+if __name__ == "__main__":
+
+    app = QApplication(sys.argv)
+    oMainwindow = MainWindow()
+    sys.exit(app.exec_())
