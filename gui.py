@@ -117,19 +117,19 @@ class MyTableWidget(QWidget):
     def saveClick(self):
         print("save")
         dictionnaire ={}
-        if self.tableWidget.item(0,1):
-            dictionnaire["Nom"] = self.tableWidget.item(0,1).text()
-        if self.tableWidget.item(0, 2):
-            dictionnaire["Prenom"] = self.tableWidget.item(0, 2).text()
-        if self.tableWidget.item(0, 3):
-            dictionnaire["Date de naissance"] = self.tableWidget.item(0, 3).text()
-        if self.tableWidget.item(0, 4):
-            dictionnaire["Sexe"] = self.tableWidget.item(0, 4).text()
-        if self.tableWidget.item(0, 5):
-            dictionnaire["Taille"] = self.tableWidget.item(0, 5).text()
-        if self.tableWidget.item(0, 6):
-            dictionnaire["Poid"] = self.tableWidget.item(0, 5).text()
+        if self.tableWidget.item(0, 1):
+            dictionnaire["nom"] = self.tableWidget.item(0, 1).text()
+        if self.tableWidget.item(1, 1):
+            dictionnaire["Prenom"] = self.tableWidget.item(1, 1).text()
+        if self.tableWidget.item(2, 1):
+            dictionnaire["Date"] = self.tableWidget.item(2, 1).text()
+        if self.tableWidget.item(3, 1):
+            dictionnaire["Sexe"] = self.tableWidget.item(3, 1).text()
+        if self.tableWidget.item(4, 1):
+            dictionnaire["Taille"] = self.tableWidget.item(4, 1).text()
+        if self.tableWidget.item(5, 1):
+            dictionnaire["Poids"] = self.tableWidget.item(5, 1).text()
 
         print(dictionnaire)
         with open ('data,json', 'w') as file:
-        json.dump(dictionnaire, file)
+            json.dump(dictionnaire, file)
