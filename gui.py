@@ -115,3 +115,11 @@ class MyTableWidget(QWidget):
 
     def saveClick(self):
         print("save")
+        dictionnaire ={}
+        if self.tableWidget.item(0,1):
+            dictionnaire["Nom"] = self.tableWidget.item(0,1).text()
+        dictionnaire["Prenom"] = self.tableWidget.item(0, 2).text()
+        dictionnaire["Date de naissance"] = self.tableWidget.item(0, 3).text()
+        dictionnaire["Sexe"] = self.tableWidget.item(0, 4).text()
+        dictionnaire["Taille"] = self.tableWidget.item(0, 5).text()
+        dictionnaire["Poid"] = self.tableWidget.item(0, 5).text()
