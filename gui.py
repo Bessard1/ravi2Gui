@@ -80,7 +80,7 @@ class MyTableWidget(QWidget):
 
         self.tab1.layout.addWidget(openButton)
         self.tab1.setLayout(self.tab1.layout)
-        self.tab1.setStyleSheet("background-image: url(C\\Users\\bessa\\PycharmProjects\\ravi2Gui\\16c1e12e24fe8e7e9aebd1bd6f3ffb3a); background-attachment: fixed")
+        self.tab1.setStyleSheet("background-image: url(./16c1e12e24fe8e7e9aebd1bd6f3ffb3a.png); background-attachment: fixed")
 
 
         # Add tabs to widget
