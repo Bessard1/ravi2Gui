@@ -81,7 +81,7 @@ class MyTableWidget(QWidget):
 
         self.tab1.layout.addWidget(openButton)
         self.tab1.setLayout(self.tab1.layout)
-
+        self.tab1.setStyleSheet("backround-image:C:\\Users\\bessa\\PycharmProjects\\ravi2Gui")
 
 
         # Add tabs to widget
