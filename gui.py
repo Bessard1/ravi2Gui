@@ -94,9 +94,16 @@ class MyTableWidget(QWidget):
         self.tableWidget.setItem(0, 0, QTableWidgetItem("Nom ?"))
         self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
         self.tableWidget.setItem(2, 0, QTableWidgetItem("Date de naissance ?"))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem("Sexe ?"))
-        self.tableWidget.setItem(1, 1, QTableWidgetItem("Taille ?"))
-        self.tableWidget.setItem(2, 1, QTableWidgetItem("Poid ?"))
+        self.tableWidget.setItem(3, 0, QTableWidgetItem("Sexe ?"))
+        self.tableWidget.setItem(4, 0, QTableWidgetItem("Taille ?"))
+        self.tableWidget.setItem(5, 0, QTableWidgetItem("Poid ?"))
+
+        self.tab2.layout = QVBoxLayout(self)
+        saveButton = QPushButton("Sauvegarder")
+        openButton.clicked.connect(self.saveClick)
+        self.tab2.layout.addWidget(saveButton)
+
+        self.tab2.setLayout(self.tab2.layout)
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
@@ -106,3 +113,6 @@ class MyTableWidget(QWidget):
         print("click")
         nom,type = QInputDialog.getText(self,"input dialog","Votre Nom ?",QLineEdit.Normal,"")
         print(nom)
+
+    def saveClick(self):
+        print("save")
